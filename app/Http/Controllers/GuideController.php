@@ -23,7 +23,7 @@ class GuideController extends Controller
     public function index()
     {
         $listGuides = Guide::latest()->paginate(5);
-        return view('guides.index', compact('guides'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('guides.index', compact('listGuides'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

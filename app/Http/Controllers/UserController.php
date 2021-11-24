@@ -17,7 +17,9 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $listUsers = User::orderBy('id', 'DESC')->paginate(5);
+        $listUsers = User::whereHas("roles", function ($q) {
+            $q->where("name", "trainee");
+        })->orderBy('id', 'DESC')->paginate(5);
         return view('users.index', compact('listUsers'))->with('i', ($request->input('page', 1) - 1) * 5);
     }
 

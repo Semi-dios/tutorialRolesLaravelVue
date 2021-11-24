@@ -39,7 +39,7 @@
                                 class="form-control"></textarea>
                         </div>
                         <div class="form-group  col-12">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            {{ Form::submit('Submit') }}
                         </div>
 
                     </div>

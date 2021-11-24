@@ -15,7 +15,7 @@
     </div>
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>{{ Message }}</strong>
+            <strong>{{ $message }}</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
@@ -37,9 +37,9 @@
                                 <th>{{ ++$i }}</th>
                                 <td>{{ $role->name }}</td>
                                 <td>
-                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-info">Show</a>
+                                    <a href="{{ route('roles.show', $role->id) }}" class="btn btn-info">Show</a>
                                     @can('role-edit')
-                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-primary">Edit</a>
                                     @endcan
                                     @can('role-delete')
                                         {!! Form::open(['method' => 'DELETE', 'route' => ['roles.destroy', $role->id], 'style' => 'display:inline']) !!}

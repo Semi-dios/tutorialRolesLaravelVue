@@ -13,18 +13,27 @@ class UsersInstructorsTableSeeder extends Seeder
      * @return void
      */
     public function run()
+
     {
+
+
+        $user1 = User::create([
+            'name' => 'admin',
+            'email' => 'nemo@gmail.com',
+            'password' => bcrypt('123456')
+        ]);
+
+
+
+        $user1->assignRole('admin');
+
         $user = User::create([
             'name' => 'Instructor 1',
             'email' => 'in1@gmail.com',
             'password' => bcrypt('123456')
         ]);
 
-        $role = Role::create(['name' => 'Instructor']);
-        $permissions = Permission::pluck('id', 'id')->all();
 
-        $role->syncPermissions($permissions);
-
-        $user->assignRole([$role->id]);
+        $user->assignRole('instructor');
     }
 }

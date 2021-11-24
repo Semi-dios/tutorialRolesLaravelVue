@@ -13,7 +13,7 @@
     </div>
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>{{ Message }}</strong>
+            <strong>{{ $message }}</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
@@ -37,10 +37,10 @@
                                 <td>{{ $guide->name }}</td>
                                 <td>{{ $guide->description }}</td>
                                 <td>
-                                    <form action="{{ route('guides.destory', $guide->id) }}" method="POST">
+                                    <form action="{{ route('guides.destroy', $guide->id) }}" method="POST">
                                         <a href="{{ route('guides.show', $guide->id) }}" class="btn btn-info">Show</a>
                                         @can('guide-edit')
-                                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Edit</a>
+                                            <a href="{{ route('guides.edit', $guide->id) }}" class="btn btn-primary">Edit</a>
                                         @endcan
 
                                         @csrf

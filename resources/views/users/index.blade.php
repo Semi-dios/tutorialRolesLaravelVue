@@ -13,7 +13,7 @@
     </div>
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>{{ Message }}</strong>
+            <strong>{{ $message }}</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
@@ -27,6 +27,7 @@
                             <th scope="col">Id</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Team</th>
                             <th scope="col">Roles</th>
                             <th scope="col">Actions</th>
                         </tr>
@@ -37,6 +38,7 @@
                                 <th>{{ ++$i }}</th>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
+                                <td>{{ $user->ficha }}</td>
                                 <td>
                                     @if (!empty($user->getRoleNames()))
                                         @foreach ($user->getRoleNames() as $v)
@@ -58,7 +60,8 @@
                 </table>
             </div>
         </div>
+        {!! $listUsers->render() !!}
     </div>
 
-    {!! $listUsers->render() !!}
+
 @endsection

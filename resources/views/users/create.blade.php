@@ -43,9 +43,7 @@
                         {!! Form::select('roles[]', $roles, [], ['class' => 'form-control', 'multiple']) !!}
                     </div>
                     <div class="form-group  col-12">
-                        <div type="submit" class="btn btn-primary">
-                            Submit
-                        </div>
+                        {{ Form::submit('Submit') }}
                     </div>
 
                 </div>
